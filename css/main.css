@@ -106,7 +106,8 @@ textarea {
    ========================================================================== */
 
 *{
-  border-sizing:border-box;
+  box-sizing:border-box;
+  margin: 0;
 }
 
 main{
@@ -134,8 +135,8 @@ body{
   position: fixed;
   top: 0;
   left: 0;
+  padding:32px;
 }
-
 
 
 .firstpage h1{
@@ -143,12 +144,10 @@ body{
     font-weight: 700;
     font-style: normal;
     font-size: 3em;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
 }
 
 .firstpage p {
-    display: inline-block;
-    padding: 64px;
     text-align: center;
     font-weight: 400;
 }
@@ -208,7 +207,7 @@ body{
 }
 
 
-.moon{
+.current{
     grid-row: 3 / span 4;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -229,14 +228,28 @@ body{
     width: 200px;
 }
 
-.mooninfo {
+.sidebar {
+    grid-column: 2;
+    grid-row: 1;
     display: grid;
     grid-template-rows: 1fr 1fr;
     align-items: center;
     justify-items: center;
 }
 
-.mooninfo i {
+
+.moonphase {
+    grid-row: 2;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #443730;
+    background-color: #FCC8C2;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.currenticon {
+    grid-row: 1;
     font-size: 3rem;
     color: white;
 }
@@ -263,15 +276,6 @@ body{
 }
 
 
-.moon p{
-    font-size: 1em;
-    font-weight: 400;
-    color: #443730;
-    background-color: #FCC8C2;
-    border-radius: 30px;
-    padding: 16px;
-    height: 20px;
-}
 
 .info{
     grid-row: 9;
@@ -345,6 +349,7 @@ body{
   grid-template-rows: repeat(6, 1fr);
   color:#443730;
   font-weight:600;
+
 }
 
 .row{
@@ -367,7 +372,9 @@ i {
   font-size:2em;
 }
 
-
+.sidebar svg {
+    color: white;
+}
 
 
 

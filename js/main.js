@@ -2,9 +2,9 @@
 // add the latitude and longitude for your location one lines 6 and 7
 // move on to adding your data requests on line 22
 function weatherBalloon() {
-  var key = '';
-  var lat = '';
-  var lon = '';
+  var key = 'cc485f034973062500b98979665a7f66';
+  var lat = '41.8781';
+  var lon = '87.6298';
   fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + key)  
   .then(function(resp) { return resp.json() }) // Convert data to json
   .then(function(data) {
@@ -18,9 +18,41 @@ function weatherBalloon() {
 
 // display weather information
 function drawWeather( d ) {
-
+  $('.secondpage .temp').html(convertTemp(d.current.temp));
   // add your specfic weather requests here
+  $('.info .windspeed').html(d.current.wind_speed);
+  $('.sidebar .moonphase').html(d.daily[0].moon_phase);
+  $('.sidebar .icon').html(printGraphic(d.current.weather[0].description));
+  
+  $('.day1 .dayname').html(displayDay(1));
+  $('.day1 .low').html(convertTemp(d.daily[1].temp.min));
+  $('.day1 .high').html(convertTemp(d.daily[1].temp.max));
+  $('.day1 .icon').html(printGraphic(d.daily[1].weather[0].description));
 
+  $('.day2 .dayname').html(displayDay(2));
+  $('.day2 .low').html(convertTemp(d.daily[2].temp.min));
+  $('.day2 .high').html(convertTemp(d.daily[2].temp.max));
+  $('.day2 .icon').html(printGraphic(d.daily[2].weather[0].description));
+
+  $('.day3 .dayname').html(displayDay(3));
+  $('.day3 .low').html(convertTemp(d.daily[3].temp.min));
+  $('.day3 .high').html(convertTemp(d.daily[3].temp.max));
+  $('.day3 .icon').html(printGraphic(d.daily[3].weather[0].description));
+
+  $('.day4 .dayname').html(displayDay(4));
+  $('.day4 .low').html(convertTemp(d.daily[4].temp.min));
+  $('.day4 .high').html(convertTemp(d.daily[4].temp.max));
+  $('.day4 .icon').html(printGraphic(d.daily[4].weather[0].description));
+
+  $('.day5 .dayname').html(displayDay(5));
+  $('.day5 .low').html(convertTemp(d.daily[5].temp.min));
+  $('.day5 .high').html(convertTemp(d.daily[5].temp.max));
+  $('.day5 .icon').html(printGraphic(d.daily[5].weather[0].description));
+
+  $('.day6 .dayname').html(displayDay(6));
+  $('.day6 .low').html(convertTemp(d.daily[6].temp.min));
+  $('.day6 .high').html(convertTemp(d.daily[6].temp.max));
+  $('.day6 .icon').html(printGraphic(d.daily[6].weather[0].description));
 }
 
 
@@ -69,11 +101,11 @@ function printGraphic(d){
   
   // if the description includes the word "rain"
   if( d.indexOf('rain') > 0 ) {
-    return '<img src="img/svg/Cloud.svg" alt="Cloud icon">';
+    return '<img src="img/svg/Cloud-Rain.svg" alt="Cloud icon">';
   
   // if the description includes the word "cloud"
   } else if( d.indexOf('cloud') > 0 ) {
-    return '<img src="img/svg/Cloud-Rain.svg" alt="Cloud icon">';
+    return '<img src="img/svg/Cloud.svg" alt="Cloud icon">';
   
   // if the description includes the word "sunny"
   } else if( d.indexOf('sunny') > 0 ) {
@@ -182,6 +214,3 @@ $('.secondpage button').click(function(){
 $('.thirdpage').click(function(){
   $('.secondpage').removeClass('open-sesame');
 })
-
-
-
