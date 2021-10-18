@@ -293,6 +293,10 @@ body{
     color: white;
 }
 
+.info i {
+    padding: 2rem;
+}
+
 .don{
     grid-row: 10;
     color: #443730;
