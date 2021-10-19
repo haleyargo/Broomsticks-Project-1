@@ -469,9 +469,20 @@ i {
    ========================================================================== */
 @media screen and (max-width: 995px), 
        screen and (max-height: 700px) {
+        
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+
+        html {
+            min-height: -webkit-fill-available;
+        }
         .firstpage{
             color: red;
         }
+
+
 }
 
 
