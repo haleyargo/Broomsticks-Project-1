@@ -101,19 +101,19 @@ function printGraphic(d){
   
   // if the description includes the word "rain"
   if( d.indexOf('rain') > 0 ) {
-    return '<img src="img/svg/Cloud-Rain.svg" alt="Cloud icon">';
+    return '<i class="fas fa-cloud-rain">';
   
   // if the description includes the word "cloud"
   } else if( d.indexOf('cloud') > 0 ) {
-    return '<img src="img/svg/Cloud.svg" alt="Cloud icon">';
+    return '<i class="fas fa-cloud">';
   
   // if the description includes the word "sunny"
   } else if( d.indexOf('sunny') > 0 ) {
-    return '<img src="img/svg/Sun.svg" alt="Cloud icon">';
+    return '<i class = "fas fa-sun">';
   
   // if none of those cases are true, assume it's clear
   } else {
-    return '<img src="img/svg/Sun.svg" alt="Cloud icon">';
+    return '<i class = "fas fa-sun">';
   }
 
 }

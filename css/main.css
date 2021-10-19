@@ -372,12 +372,19 @@ background: linear-gradient(180deg, rgba(245,236,205,1) 0%, rgba(252,200,194,1) 
 
 i {
   font-size:2em;
+  color: #443730;
 }
 
-.sidebar svg {
+.secondpage i {
     color: white;
 }
 
+.secondpage button i {
+    color: #8499B1;
+    font-size: 20px;
+    letter-spacing: 20px;
+    align-self: center;
+}
 
 
 
