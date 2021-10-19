@@ -172,7 +172,7 @@ function displayDay(n){
   weekday[3] = "Wed";
   weekday[4] = "Thu";
   weekday[5] = "Fri";
-  weekday[6] = "Sun";
+  weekday[6] = "Sat";
 
   var dispDay = d.getDay() + n;
 
