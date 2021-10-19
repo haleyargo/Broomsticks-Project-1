@@ -470,6 +470,11 @@ i {
 @media screen and (max-width: 995px), 
        screen and (max-height: 700px) {
         
+        *{
+            box-sizing:border-box;
+            margin: 0;
+        }
+
         body {
             min-height: 100vh;
             min-height: -webkit-fill-available;
@@ -478,9 +483,9 @@ i {
         html {
             min-height: -webkit-fill-available;
         }
-        .firstpage{
-            color: red;
-        }
+        
+
+
 
 
 }
