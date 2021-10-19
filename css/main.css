@@ -245,7 +245,9 @@ body{
     color: #443730;
     background-color: #FCC8C2;
     border-radius: 30px;
+    text-align: center;
     padding: 10px;
+    width: 50px;
 }
 
 .currenticon {
