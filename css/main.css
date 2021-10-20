@@ -198,12 +198,28 @@ body{
 .location{
     grid-row: 1 / span 2;
     color: #6096BA;
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    padding: 50px;
+}
+
+.location i {
+    justify-self: right;
+    font-size: 30px;
+    transition: all .5s;
+}
+
+.location i:hover{
+    color: #FF87AB;
 }
 
 .location h2{
     font-size: 20px;
     font-weight: 400;
     color: white;
+    justify-self: left;
 }
 
 
@@ -258,7 +274,7 @@ body{
 
 
 .tempmoon h1 {
-    color: white;
+    color: #FF87AB;
     font-size: 5rem;
     position: static;
     text-align: center;

@@ -199,11 +199,7 @@ $('.firstpage button').click(function(){
   $('.firstpage').addClass('open-sesame');
 })
 
-$('.secondpage h1').click(function(){
-  $('.firstpage').removeClass('open-sesame');
-})
-
-$('.secondpage p').click(function(){
+$('.secondpage .location i').click(function(){
   $('.firstpage').removeClass('open-sesame');
 })
 
