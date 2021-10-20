@@ -272,6 +272,9 @@ body{
     color: white;
 }
 
+.icon {
+    padding: 1rem;
+}
 
 .tempmoon h1 {
     color: #FF87AB;
