@@ -229,6 +229,9 @@ body{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     place-items: center;
+    align-items: center;
+    justify-items: center;
+    padding: 2rem;
 }
 
 .tempmoon{
@@ -276,10 +279,11 @@ body{
     padding: 1rem;
 }
 
+
+
 .tempmoon h1 {
     color: #FF87AB;
     font-size: 5rem;
-    position: static;
     text-align: center;
     line-height: 200px;
     margin: 0;
@@ -316,6 +320,7 @@ body{
     font-weight: 400;
     text-align: left;
     color: white;
+    padding: 2rem;
 }
 
 .info i {
@@ -495,24 +500,33 @@ i {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-@media screen and (max-width: 995px), 
-       screen and (max-height: 700px) {
+@media screen and (max-width: 414px), 
+       screen and (max-height: 736px),
+       {
         
         *{
             box-sizing:border-box;
             margin: 0;
         }
 
-        body {
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
+        h1 {
         }
 
-        html {
-            min-height: -webkit-fill-available;
-        }
+
+
+}
+
+@media screen and (max-width: 375px), 
+       screen and (max-height: 812px),
+       {
         
+        *{
+            box-sizing:border-box;
+            margin: 0;
+        }
 
+        h1 {
+        }
 
 
 
