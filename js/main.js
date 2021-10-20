@@ -23,7 +23,7 @@ function drawWeather( d ) {
   $('.info .windspeed').html(d.current.wind_speed+' mph');
   $('.sidebar .moonphase').html(d.daily[0].moon_phase);
   $('.sidebar .icon').html(printGraphic(d.current.weather[0].description));
-  $('.info .humidity').html(d.current.humidity+' %');
+  $('.info .humidity').html(d.daily[0].pop +' %');
   
   $('.day1 .dayname').html(displayDay(1));
   $('.day1 .low').html(convertTemp(d.daily[1].temp.min));
@@ -93,6 +93,27 @@ function changeTheme(d){
 
 }
 
+function changeMoon(d){
+  
+  // if the description includes the number "1"
+  if( d.indexOf('rain') > 0 ) {
+    $('body').addClass('rainy');
+
+  // if the description includes the number "cloud"
+  } else if( d.indexOf('cloud') > 0 ) {
+    $('body').addClass('cloudy');
+
+  // if the description includes the word "sunny"  
+  } else if( d.indexOf('sunny') > 0 ) {
+    $('body').addClass('sunny');
+
+  // if none of those cases are true, assume it's clear
+  } else {
+    $('body').addClass('clear');
+  }
+
+}
+
 
 /* -----------------------------------------------
    Function for printing weather-specific graphic
@@ -116,6 +137,7 @@ function printGraphic(d){
   } else {
     return '<i class = "fas fa-sun">';
   }
+
 
 }
 
