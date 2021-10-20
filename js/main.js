@@ -20,9 +20,10 @@ function weatherBalloon() {
 function drawWeather( d ) {
   $('.secondpage .temp').html(convertTemp(d.current.temp));
   // add your specfic weather requests here
-  $('.info .windspeed').html(d.current.wind_speed);
+  $('.info .windspeed').html(d.current.wind_speed+' mph');
   $('.sidebar .moonphase').html(d.daily[0].moon_phase);
   $('.sidebar .icon').html(printGraphic(d.current.weather[0].description));
+  $('.info .humidity').html(d.current.humidity+' %');
   
   $('.day1 .dayname').html(displayDay(1));
   $('.day1 .low').html(convertTemp(d.daily[1].temp.min));
