@@ -260,13 +260,11 @@ body{
 .moonphase {
     grid-row: 2;
     font-size: 1rem;
-    font-weight: 400;
-    color: #443730;
-    background-color: #FCC8C2;
+    font-weight: 600;
+    color: white;
     border-radius: 30px;
-    text-align: center;
+    text-align: left;
     padding: 10px;
-    width: 50px;
 }
 
 .currenticon {
@@ -290,9 +288,7 @@ body{
     transition: all 1s;
 }
 
-.tempmoon h1:hover{
-    color: #FF87AB;
-}
+
 
 
 .tempmoon h1 span {
@@ -329,7 +325,7 @@ body{
 
 .don{
     grid-row: 10;
-    color: #443730;
+    color: #FF87AB;
     font-family: louvette-display,serif;
     font-weight: 400;
     font-style: normal;
@@ -380,7 +376,7 @@ body{
 
 .row{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
   align-items:center;
   justify-items:center;
 }

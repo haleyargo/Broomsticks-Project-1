@@ -20,40 +20,46 @@ function weatherBalloon() {
 function drawWeather( d ) {
   $('.secondpage .temp').html(convertTemp(d.current.temp));
   // add your specfic weather requests here
-  $('.info .windspeed').html(d.current.wind_speed+' mph');
-  $('.sidebar .moonphase').html(d.daily[0].moon_phase);
+  $('.info .windspeed').html(convertToMph(d.current.wind_speed)+' mph');
+  $('.sidebar .moonphase').html(printMoonText(d.daily[0].moon_phase));
   $('.sidebar .icon').html(printGraphic(d.current.weather[0].description));
-  $('.info .humidity').html(d.daily[0].pop +' %');
+  $('.info .humidity').html( convertPop(d.daily[0].pop)+' %' );
   
   $('.day1 .dayname').html(displayDay(1));
   $('.day1 .low').html(convertTemp(d.daily[1].temp.min));
   $('.day1 .high').html(convertTemp(d.daily[1].temp.max));
   $('.day1 .icon').html(printGraphic(d.daily[1].weather[0].description));
+  $('.day1 .moonicon').html(printMoonGraphic(d.daily[1].moon_phase));
 
   $('.day2 .dayname').html(displayDay(2));
   $('.day2 .low').html(convertTemp(d.daily[2].temp.min));
   $('.day2 .high').html(convertTemp(d.daily[2].temp.max));
   $('.day2 .icon').html(printGraphic(d.daily[2].weather[0].description));
+  $('.day2 .moonicon').html(printMoonGraphic(d.daily[2].moon_phase));
 
   $('.day3 .dayname').html(displayDay(3));
   $('.day3 .low').html(convertTemp(d.daily[3].temp.min));
   $('.day3 .high').html(convertTemp(d.daily[3].temp.max));
   $('.day3 .icon').html(printGraphic(d.daily[3].weather[0].description));
+  $('.day3 .moonicon').html(printMoonGraphic(d.daily[3].moon_phase));
 
   $('.day4 .dayname').html(displayDay(4));
   $('.day4 .low').html(convertTemp(d.daily[4].temp.min));
   $('.day4 .high').html(convertTemp(d.daily[4].temp.max));
   $('.day4 .icon').html(printGraphic(d.daily[4].weather[0].description));
+  $('.day4 .moonicon').html(printMoonGraphic(d.daily[4].moon_phase));
 
   $('.day5 .dayname').html(displayDay(5));
   $('.day5 .low').html(convertTemp(d.daily[5].temp.min));
   $('.day5 .high').html(convertTemp(d.daily[5].temp.max));
   $('.day5 .icon').html(printGraphic(d.daily[5].weather[0].description));
+  $('.day5 .moonicon').html(printMoonGraphic(d.daily[5].moon_phase));
 
   $('.day6 .dayname').html(displayDay(6));
   $('.day6 .low').html(convertTemp(d.daily[6].temp.min));
   $('.day6 .high').html(convertTemp(d.daily[6].temp.max));
   $('.day6 .icon').html(printGraphic(d.daily[6].weather[0].description));
+  $('.day6 .moonicon').html(printMoonGraphic(d.daily[6].moon_phase));
 }
 
 
@@ -93,24 +99,19 @@ function changeTheme(d){
 
 }
 
-function changeMoon(d){
-  
-  // if the description includes the number "1"
-  if( d.indexOf('rain') > 0 ) {
-    $('body').addClass('rainy');
 
-  // if the description includes the number "cloud"
-  } else if( d.indexOf('cloud') > 0 ) {
-    $('body').addClass('cloudy');
 
-  // if the description includes the word "sunny"  
-  } else if( d.indexOf('sunny') > 0 ) {
-    $('body').addClass('sunny');
 
-  // if none of those cases are true, assume it's clear
-  } else {
-    $('body').addClass('clear');
-  }
+function convertPop(t){
+
+  return t * 100;
+
+}
+
+
+function convertToMph(t){
+
+  return Math.round(t * 2.236936);
 
 }
 
@@ -165,6 +166,73 @@ function convertTime(t){
 
 }
 
+function printMoonGraphic(d){
+  
+  // .5 is a full moon
+  if( d == .5 ) {
+    return '<img src="img/svg/Moon-Full.svg" alt="Moon icon">';
+  
+  // .25 is a new moon
+  } else if( d == .25 ) {
+    return '<img src="img/svg/Moon-New.svg" alt="Moon icon">';
+  
+  // .75 is a last quarter moon
+  } else if( d == .75 ) {
+    return '<img src="img/svg/Moon-Last-Quarter.svg" alt="Moon icon">';
+
+  // less than .25 is a waxing crescent moon
+  } else if( d < .25 ) {
+    return '<img src="img/svg/Moon-Waxing-Crescent.svg" alt="Moon icon">';
+
+  // greater than .25 but less than .5 is a waxing gibbous moon
+  } else if( d > .25 || d < .5 ) {
+    return '<img src="img/svg/Moon-Waxing-Gibbous.svg" alt="Moon icon">';
+
+  // greater than .5 but less than .75 is a waning gibbous moon
+  } else if( d > .5 || d < .75 ) {
+    return '<img src="img/svg/Moon-Waning-Gibbous.svg" alt="Moon icon">';
+
+  // greater than .75 but less than 1 is a waning crescent moon
+  } else if( d > .75 || d < 1 ) {
+    return '<img src="img/svg/Moon-Waning-Crescent.svg" alt="Moon icon">';
+  
+  }
+
+}
+
+function printMoonText(d){
+  
+  // .5 is a full moon
+  if( d == .5 ) {
+    return '<p>Full Moon</p>';
+  
+  // .25 is a new moon
+  } else if( d == .25 ) {
+    return '<p>New Moon</p>';
+  
+  // .75 is a last quarter moon
+  } else if( d == .75 ) {
+    return '<p>Last Quarter</p>';
+
+  // less than .25 is a waxing crescent moon
+  } else if( d < .25 ) {
+    return '<p>Waxing Crescent</p>';
+
+  // greater than .25 but less than .5 is a waxing gibbous moon
+  } else if( d > .25 || d < .5 ) {
+    return '<p>Waxing Gibbous</p>';
+
+  // greater than .5 but less than .75 is a waning gibbous moon
+  } else if( d > .5 || d < .75 ) {
+    return '<p>Waning Gibbous</p>';
+
+  // greater than .75 but less than 1 is a waning crescent moon
+  } else if( d > .75 || d < 1 ) {
+    return '<p>Waning Crescent</p>';
+  
+  }
+
+}
 
 /* -----------------------------------------------
    Function for creating day of the week
