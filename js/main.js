@@ -98,7 +98,14 @@ function changeTheme(d){
   }
 
 }
+ function changeText(d){
 
+  if(d.indexOf('rain')>0){
+    $('don').addClass('red');
+  } else {
+    $('don').addClass('blue');
+  }
+ }
 
 
 
