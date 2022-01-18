@@ -2,9 +2,9 @@
 // add the latitude and longitude for your location one lines 6 and 7
 // move on to adding your data requests on line 22
 function weatherBalloon() {
-  var key = 'cc485f034973062500b98979665a7f66';
-  var lat = '41.85';
-  var lon = '-87.65';
+  var key = 'dc54aaadf6711aaef89838711ab7907a';
+  var lat = '41.881832';
+  var lon = '-87.623177';
   fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + key)  
   .then(function(resp) { return resp.json() }) // Convert data to json
   .then(function(data) {
@@ -136,10 +136,10 @@ function printGraphic(d){
   // if the description includes the word "cloud"
   } else if( d.indexOf('cloud') > 0 ) {
     return '<i class="fas fa-cloud">';
-  
-  // if the description includes the word "sunny"
-  } else if( d.indexOf('sunny') > 0 ) {
-    return '<i class = "fas fa-sun">';
+
+      // if the description includes the word "snow"
+  } else if( d.indexOf('snow') > 0 ) {
+    return '<i class="far fa-snowflake">';
   
   // if none of those cases are true, assume it's clear
   } else {
