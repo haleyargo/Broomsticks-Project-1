@@ -4,7 +4,7 @@
 function weatherBalloon() {
   var key = 'cc485f034973062500b98979665a7f66';
   var lat = '41.8781';
-  var lon = '87.6298';
+  var lon = '-87.6298';
   fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + key)  
   .then(function(resp) { return resp.json() }) // Convert data to json
   .then(function(data) {
