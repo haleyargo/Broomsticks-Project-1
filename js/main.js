@@ -3,8 +3,8 @@
 // move on to adding your data requests on line 22
 function weatherBalloon() {
   var key = 'dc54aaadf6711aaef89838711ab7907a';
-  var lat = '41.881832';
-  var lon = '-87.623177';
+  var lat = '41.825226';
+  var lon = '-71.418884';
   fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + key)  
   .then(function(resp) { return resp.json() }) // Convert data to json
   .then(function(data) {
